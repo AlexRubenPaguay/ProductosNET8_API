@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NetCoreAPI_UNO.Data;
@@ -23,11 +24,11 @@ namespace NetCoreAPI_UNO.Controllers
         {
             _context = context;
         }
-        
+
         [HttpGet("getAll")]
         public async Task<ActionResult<IEnumerable<Producto>>> GetProductos()
         {
-            return await _context.Productos.OrderByDescending(p=>p.Id).ToListAsync();
+            return await _context.Productos.OrderByDescending(p => p.Id).ToListAsync();
         }
 
         [HttpGet("getById/{idProducto}")]
@@ -45,17 +46,17 @@ namespace NetCoreAPI_UNO.Controllers
         [HttpGet("buscar/{atributoProducto}")]
         public async Task<ActionResult<List<Producto>>> GetProductoTodo(string atributoProducto)
         {
-            var _atributoProducto = WebUtility.UrlDecode(atributoProducto);            
-            bool esDecimal = decimal.TryParse(_atributoProducto, NumberStyles.Any,CultureInfo.InvariantCulture, out decimal precio);
+            var _atributoProducto = WebUtility.UrlDecode(atributoProducto);
+            bool esDecimal = decimal.TryParse(_atributoProducto, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal precio);
             bool esEntero = int.TryParse(_atributoProducto, out int stock);
             bool esFecha = DateTime.TryParse(_atributoProducto, out DateTime fecha);
-            var query = _context.Productos.AsQueryable();            
+            var query = _context.Productos.AsQueryable();
             var productos = await query
             .Where(p =>
-            p.Nombre.Contains(_atributoProducto) ||  
-                    (esDecimal && p.Precio == precio) ||  
-                    (esEntero && p.Stock == stock) ||  
-                    (esFecha && p.Fecha.Date == fecha.Date)  
+            p.Nombre.Contains(_atributoProducto) ||
+                    (esDecimal && p.Precio == precio) ||
+                    (esEntero && p.Stock == stock) ||
+                    (esFecha && p.Fecha.Date == fecha.Date)
                 ).ToListAsync();
 
             if (!productos.Any())
@@ -63,8 +64,8 @@ namespace NetCoreAPI_UNO.Controllers
                 return NotFound("No se encontraron productos con el criterio de búsqueda");
             }
             return productos;
-        }
-        
+        }       
+
         [HttpPut("actualizar/{idProducto}")]
         public async Task<IActionResult> PutProducto(int idProducto, Producto producto)
         {
@@ -94,12 +95,23 @@ namespace NetCoreAPI_UNO.Controllers
         [HttpPost("crear")]
         public async Task<ActionResult<Producto>> PostProducto(Producto producto)
         {
+            bool existe = await _context.Productos.AnyAsync(pro => pro.Nombre.ToLower() == producto.Nombre.ToLower());
+            if (existe)
+            {
+                return Conflict($"Ya es xiste un producto con el nombre '{producto.Nombre}' !!!");
+            }
             _context.Productos.Add(producto);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetProducto", new { id = producto.Id }, producto);
+            return Ok(new
+            {
+                success = true,
+                mensage = "Producto creado correctammente !!!"
+            }
+            );
+            // Retornar el producto creado con código 201
+            //return CreatedAtAction(nameof(GetProducto), new { id = producto.Id }, producto);
         }
-        
+
         [HttpDelete("eliminar/{idProducto}")]
         public async Task<IActionResult> DeleteProducto(int idProducto)
         {
