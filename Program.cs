@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using NetCoreAPI_UNO.Data;
+using ProductosNet8_API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

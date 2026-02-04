@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NetCoreAPI_UNO.Migrations
+namespace ProductosNet8_API.Migrations
 {
     /// <inheritdoc />
     public partial class Primeramigración : Migration

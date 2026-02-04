@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NetCoreAPI_UNO.Data;
-using NetCoreAPI_UNO.Models;
+using ProductosNet8_API.Data;
+using ProductosNet8_API.Models;
 
-namespace NetCoreAPI_UNO.Controllers
+namespace ProductosNet8_API.Controllers
 {
     [Route("/v1/api/[controller]")]
     [ApiController]

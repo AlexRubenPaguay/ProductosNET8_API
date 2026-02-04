@@ -1,4 +1,4 @@
-﻿namespace NetCoreAPI_UNO.Models
+﻿namespace ProductosNet8_API.Models
 {
     public class Producto
     {

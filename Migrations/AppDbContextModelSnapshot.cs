@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NetCoreAPI_UNO.Data;
+using ProductosNet8_API.Data;
 
 #nullable disable
 
-namespace NetCoreAPI_UNO.Migrations
+namespace ProductosNet8_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace NetCoreAPI_UNO.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("NetCoreAPI_UNO.Models.Producto", b =>
+            modelBuilder.Entity("ProductosNet8_API.Models.Producto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

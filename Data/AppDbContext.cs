@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NetCoreAPI_UNO.Models;
-namespace NetCoreAPI_UNO.Data
+using ProductosNet8_API.Models;
+namespace ProductosNet8_API.Data
 {
     public class AppDbContext:DbContext
     {
