@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductosNet8_API", "ProductosNet8_API.csproj", "{87677A8A-1316-4069-8CE2-661B234A46CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrondEnd_API", "..\FrondEnd_API\FrondEnd_API.csproj", "{401C0295-DF16-4062-A6EE-38B950962E24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumo_ProductoAPI", "..\FrondEnd_API\Consumo_ProductoAPI.csproj", "{401C0295-DF16-4062-A6EE-38B950962E24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
