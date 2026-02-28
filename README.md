@@ -2,6 +2,9 @@
 
 API RESTful desarrollada con .NET 8 y Entity Framework Core para la gestión de productos. Esta API está diseñada para ser consumida por aplicaciones frontend como Angular, React o Vue.js.
 
+# Frond-end de esta API.
+https://github.com/AlexRubenPaguay/ProductosAngular17
+
 ## ✨ Características
 
     ✅ CRUD completo para productos
@@ -97,3 +100,4 @@ La API incluye documentación automática con Swagger UI:
     Swagger
 
 ⭐️ ¡No olvides darle una estrella al proyecto si te fue útil! ⭐️
+
