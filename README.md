@@ -1,9 +1,10 @@
-# 📦 App Admin Productos - .NET 8 Web API
+# 📦 API Admin Productos - .NET 8 Web API
 
 API RESTful desarrollada con .NET 8 y Entity Framework Core para la gestión de productos. Esta API está diseñada para ser consumida por aplicaciones frontend como Angular, React o Vue.js.
 
 # Frond-end de esta API.
-https://github.com/AlexRubenPaguay/ProductosAngular17
+-  https://github.com/AlexRubenPaguay/ProductosAngular17    Consumida en Angular 17
+-  https://github.com/AlexRubenPaguay/Consumo_ProductoAPI   Consumida en Asp.Net core
 
 ## ✨ Características
 
@@ -100,4 +101,5 @@ La API incluye documentación automática con Swagger UI:
     Swagger
 
 ⭐️ ¡No olvides darle una estrella al proyecto si te fue útil! ⭐️
+
 
